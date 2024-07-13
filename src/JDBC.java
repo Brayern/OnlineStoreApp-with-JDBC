@@ -24,7 +24,7 @@ public class JDBC {
     // Create a table for demonstration purposes
     private static void createTable() {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS users ("
-                + "id INT AUTO_INCREMENT PRIMARY KEY,"
+                + "id SERIAL PRIMARY KEY , "
                 + "name VARCHAR(100) NOT NULL,"
                 + "email VARCHAR(100) NOT NULL"
                 + ")";
