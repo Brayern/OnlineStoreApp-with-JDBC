@@ -10,7 +10,7 @@ public class JDBC {
     // Database connection parameters
     private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/LiveDb";
     private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "Admin.123#";
+    private static final String PASSWORD = "Abcde123#";
     public static void main(String[] args) {
         // Perform all CRUD operations
         createTable();
