@@ -11,7 +11,6 @@ public class JDBC {
     private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/LiveDb";
     private static final String USERNAME = "postgres";
     private static final String PASSWORD = "Admin.123#";
-
     public static void main(String[] args) {
         // Perform all CRUD operations
         createTable();
@@ -33,7 +32,7 @@ public class JDBC {
             statement.execute(createTableSQL);
             System.out.println("Table 'users' created successfully.");
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -43,17 +42,17 @@ public class JDBC {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
 
-            preparedStatement.setString(1, "John Doe");
-            preparedStatement.setString(2, "john.doe@example.com");
+            preparedStatement.setString(1, "Brayern Marubu");
+            preparedStatement.setString(2, "marubu@gmail.com");
             int rowsInserted = preparedStatement.executeUpdate();
             System.out.println(rowsInserted + " row(s) inserted.");
 
-            preparedStatement.setString(1, "Jane Doe");
-            preparedStatement.setString(2, "jane.doe@example.com");
+            preparedStatement.setString(1, "John Mwendwa");
+            preparedStatement.setString(2, "john@gmail.com");
             rowsInserted = preparedStatement.executeUpdate();
             System.out.println(rowsInserted + " row(s) inserted.");
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -71,7 +70,7 @@ public class JDBC {
                 System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -81,12 +80,12 @@ public class JDBC {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
 
-            preparedStatement.setString(1, "john.updated@example.com");
-            preparedStatement.setString(2, "John Doe");
+            preparedStatement.setString(1, "johnmwendwa@gmail.com");
+            preparedStatement.setString(2, "John Mwendwa");
             int rowsUpdated = preparedStatement.executeUpdate();
             System.out.println(rowsUpdated + " row(s) updated.");
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -96,11 +95,11 @@ public class JDBC {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
 
-            preparedStatement.setString(1, "John Doe");
+            preparedStatement.setString(1, "John Mwendwa");
             int rowsDeleted = preparedStatement.executeUpdate();
             System.out.println(rowsDeleted + " row(s) deleted.");
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
